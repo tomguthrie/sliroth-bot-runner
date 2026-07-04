@@ -9,6 +9,7 @@ RUN apt-get update \
       build-essential \
       pkg-config \
       libssl-dev \
+      libasound2-dev \
       ca-certificates \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
