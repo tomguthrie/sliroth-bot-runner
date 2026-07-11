@@ -5,20 +5,18 @@ FROM ghcr.io/actions/actions-runner:2.335.1
 # C build toolchain so cargo/clippy/fmt can link in kubernetes-mode ARC pods.
 USER root
 RUN apt-get update \
- && apt-get install -y --no-install-recommends \
-      build-essential \
-      pkg-config \
-      libssl-dev \
-      libasound2-dev \
-      ca-certificates \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
-
-# -- FUTURE
-# Investigate whether we just setup rust already and skip dtolnay/rust-toolchain@stable
-# RUN rustup default stable && rustup component add clippy rustfmt
-# RUN curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
-#  && apt-get install -y --no-install-recommends nodejs \
-#  && apt-get clean && rm -rf /var/lib/apt/lists/*
+  && apt-get install -y --no-install-recommends \
+  build-essential \
+  pkg-config \
+  libssl-dev \
+  libasound2-dev \
+  ca-certificates \
+  gcc-mingw-w64-x86-64 \
+  g++-mingw-w64-x86-64 \
+  binutils-mingw-w64-x86-64 \
+  nasm \
+  cmake \
+  && apt-get clean \
+  && rm -rf /var/lib/apt/lists/*
 
 USER runner
