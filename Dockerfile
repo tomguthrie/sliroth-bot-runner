@@ -1,4 +1,4 @@
-FROM ghcr.io/actions/actions-runner:2.335.1
+FROM ghcr.io/actions/actions-runner:2.336.0
 
 # The stock runner image is intentionally minimal and ships no C toolchain, so
 # Rust links fail (`rust-lld: cannot open Scrt1.o`, `unable to find -lc`). Add a
